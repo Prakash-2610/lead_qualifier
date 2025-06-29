@@ -37,6 +37,16 @@ LIMIT 3;
 ```
 ![SQL result](https://github.com/Prakash-2610/lead_qualifier/blob/main/SQL%20query%201.png?raw=True) 
 ---
+```sql
+SELECT metadata->>'view' AS view,
+       ROUND(100.0 * COUNT(*) / (SELECT COUNT(*) FROM events WHERE action = 'toggle_view'), 2) AS pct
+FROM events
+WHERE action = 'toggle_view'
+GROUP BY view;
+```
+![SQL result](https://github.com/Prakash-2610/lead_qualifier/blob/main/SQL%20query%202%20.png?raw=True) 
+---
+
 
 ---
 
@@ -50,8 +60,7 @@ python -m venv venv
 venv\Scripts\activate  # On Windows
 pip install -r requirements.txt
 
-# Set your OpenAI key
-set OPENAI_API_KEY=your-key-here
+# Set your OpenAI API key directly in `app.py`
 
 # Start server
 uvicorn app:app --reload
