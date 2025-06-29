@@ -35,7 +35,7 @@ GROUP BY filter
 ORDER BY uses DESC
 LIMIT 3;
 ```
-![SQL result](.\SQL query 1.png) 
+![SQL result](./SQL query 1.png) 
 ---
 
 ---
